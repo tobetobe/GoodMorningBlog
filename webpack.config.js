@@ -2,6 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const marked = require("marked");
+const renderer = new marked.Renderer();
 
 const config = {
   entry: './src/index.js',
@@ -53,6 +55,21 @@ const config = {
       {
         test: /\.svg$/,
         use: 'file-loader'
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'html-loader'
+          },
+          {
+            loader: 'markdown-loader',
+            options: {
+              pedantic: true,
+              renderer
+            }
+          }
+        ]
       }
     ]
   },

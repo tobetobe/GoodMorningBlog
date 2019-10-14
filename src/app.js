@@ -8,6 +8,8 @@ import {
   useParams
 } from 'react-router-dom'
 
+import Article from './router/article/index.js'
+
 import { hot } from 'react-hot-loader'
 
 class App extends React.Component {
@@ -24,7 +26,7 @@ class App extends React.Component {
               <Link to='/about'>About</Link>
             </li>
             <li>
-              <Link to='/topics'>Topics</Link>
+              <Link to='/article'>Article</Link>
             </li>
           </ul>
         </div>
@@ -33,8 +35,8 @@ class App extends React.Component {
           <Route path='/about'>
             <About />
           </Route>
-          <Route path='/topics'>
-            <Topics />
+          <Route path='/article'>
+            <Article />
           </Route>
           <Route path='/'>
             <Home />
